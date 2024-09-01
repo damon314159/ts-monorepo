@@ -1,0 +1,9 @@
+.DS_STORE
+node_modules
+temp
+dist
+assets
+
+.*
+
+generate-package.js
