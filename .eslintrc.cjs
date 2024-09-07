@@ -6,16 +6,16 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
-    'plugin:@typescript-eslint/recommended-type-checked',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:import/recommended',
     'plugin:import/typescript',
     'plugin:require-extensions/recommended',
     'airbnb',
+    'plugin:@typescript-eslint/recommended-type-checked',
     'prettier',
   ],
-  plugins: ['@typescript-eslint', 'unicorn', 'require-extensions'],
+  plugins: ['unicorn', 'require-extensions', '@typescript-eslint'],
   rules: {
     'arrow-body-style': 'error',
     'prefer-arrow-callback': 'error',
@@ -69,8 +69,12 @@ module.exports = {
     sourceType: 'module',
     warnOnUnsupportedTypeScriptVersion: true,
     tsconfigRootDir: __dirname,
-    projectService: true,
-    EXPERIMENTAL_useProjectService: true,
+    project: [
+      './tsconfig.json',
+      './tsconfig.test.json',
+      './packages/**/tsconfig.json',
+      './apps/**/tsconfig.json',
+    ],
   },
   settings: {
     'import/parsers': {
